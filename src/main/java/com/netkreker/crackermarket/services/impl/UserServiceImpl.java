@@ -6,18 +6,15 @@ import com.netkreker.crackermarket.models.user.Status;
 import com.netkreker.crackermarket.models.user.User;
 import com.netkreker.crackermarket.repository.UserRepository;
 import com.netkreker.crackermarket.services.UserService;
-import io.quarkus.elytron.security.common.BcryptUtil;
+//import io.quarkus.elytron.security.common.BcryptUtil;
 
 import javax.enterprise.context.ApplicationScoped;
-import org.eclipse.microprofile.config.inject.ConfigProperty;
 import javax.inject.Inject;
 import java.util.List;
 import java.util.UUID;
 
 @ApplicationScoped
 public class UserServiceImpl implements UserService {
-    @ConfigProperty(name = "salt")
-    private String salt;
 
     @Inject
     UserRepository userRepository;
@@ -50,7 +47,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void persist(User user) {
 
-        setEncodedPassword(user);
+//        setEncodedPassword(user);
 
         if(user.getUsername().equals("admin")) {
             user.setRole(Role.ROLE_ADMIN);
@@ -60,7 +57,7 @@ public class UserServiceImpl implements UserService {
         userRepository.persist(user);
     }
 
-    private void setEncodedPassword(User user) {
-        user.setPassword(BcryptUtil.bcryptHash(user.getPassword()));
-    }
+//    private void setEncodedPassword(User user) {
+//        user.setPassword(BcryptUtil.bcryptHash(user.getPassword()));
+//    }
 }

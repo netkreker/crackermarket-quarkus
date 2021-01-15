@@ -1,29 +1,29 @@
 package com.netkreker.crackermarket.models.user;
 
-import io.quarkus.security.jpa.Password;
-import io.quarkus.security.jpa.Roles;
-import io.quarkus.security.jpa.UserDefinition;
-import io.quarkus.security.jpa.Username;
+//import io.quarkus.security.jpa.Password;
+//import io.quarkus.security.jpa.Roles;
+//import io.quarkus.security.jpa.UserDefinition;
+//import io.quarkus.security.jpa.Username;
 
 import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
 @Table(name = "users")
-@UserDefinition
+//@UserDefinition
 public class User {
 
     @Id
     @GeneratedValue
     private UUID id;
 
-    @Username
+//    @Username
     private String username;
 
-    @Password
+//    @Password
     private String password;
 
-    @Roles
+//    @Roles
     private String role;
 
     @Column(name = "status")
